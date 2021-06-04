@@ -7,28 +7,16 @@ class ConfigurationService {
   final SharedPreferencesService _sharedPreferencesService = locator<SharedPreferencesService>();
 
   // sets
-  void setMnemonic(String? value) {
-    _sharedPreferencesService.saveToDisk(mNemonic, value ?? '');
-  }
+  void setMnemonic(String? value) => _sharedPreferencesService.saveToDisk(mNemonic, value ?? '');
 
-  void setPrivateKey(String? value) {
-    _sharedPreferencesService.saveToDisk(secretKey, value ?? '');
-  }
+  void setPrivateKey(String? value) => _sharedPreferencesService.saveToDisk(secretKey, value ?? '');
 
-  void setupDone(bool value) {
-    _sharedPreferencesService.saveToDisk(didSetupWallet, value);
-  }
+  void setupDone(bool value) => _sharedPreferencesService.saveToDisk(didSetupWallet, value);
 
   // gets
-  String? getMnemonic() {
-    return _sharedPreferencesService.getFromDisk(mNemonic);
-  }
+  String? getMnemonic() => _sharedPreferencesService.getFromDisk(mNemonic);
 
-  String? getPrivateKey() {
-    return _sharedPreferencesService.getFromDisk(secretKey);
-  }
+  String? getPrivateKey() => _sharedPreferencesService.getFromDisk(secretKey);
 
-  bool doneSetupWallet() {
-    return _sharedPreferencesService.getFromDisk(didSetupWallet) ?? false;
-  }
+  bool doneSetupWallet() => _sharedPreferencesService.getFromDisk(didSetupWallet) ?? false;
 }

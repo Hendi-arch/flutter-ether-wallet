@@ -1,3 +1,4 @@
+import 'package:flutter_smart_contract/shared/wallet_icons.dart';
 import 'package:stacked/stacked_annotations.dart';
 
 // route name
@@ -18,10 +19,12 @@ import 'package:flutter_smart_contract/shared/size_config.dart';
 // views
 import 'package:flutter_smart_contract/ui/views/startup/start_up_view.dart';
 import 'package:flutter_smart_contract/ui/views/inside/home/home_view.dart';
+import 'package:flutter_smart_contract/ui/views/outside/signup/signup_view.dart';
 
 @StackedApp(routes: [
   AdaptiveRoute(page: StartUpView, initial: true, path: root),
   AdaptiveRoute(page: HomeView, path: home),
+  AdaptiveRoute(page: SignUpView, path: signup),
 ], dependencies: [
   // Singleton Injections
   LazySingleton(classType: DialogService),
@@ -33,6 +36,7 @@ import 'package:flutter_smart_contract/ui/views/inside/home/home_view.dart';
   LazySingleton(classType: ContractService),
   LazySingleton(classType: AddressService),
   LazySingleton(classType: ConfigurationService),
+  LazySingleton(classType: WalletIcons),
 
   // Factory Injections
   Factory(classType: ApiService)

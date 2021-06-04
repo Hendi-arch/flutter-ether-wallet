@@ -17,6 +17,7 @@ import '../core/services/configuration_service.dart';
 import '../core/services/contract_service.dart';
 import '../core/services/utility_service.dart';
 import '../shared/size_config.dart';
+import '../shared/wallet_icons.dart';
 
 final locator = StackedLocator.instance;
 
@@ -35,5 +36,6 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
   locator.registerLazySingleton(() => ContractService());
   locator.registerLazySingleton(() => AddressService());
   locator.registerLazySingleton(() => ConfigurationService());
+  locator.registerLazySingleton(() => WalletIcons());
   locator.registerFactory(() => ApiService());
 }

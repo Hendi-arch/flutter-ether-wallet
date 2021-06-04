@@ -8,10 +8,10 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<HomeViewModel>.reactive(
+    return ViewModelBuilder<HomeViewModel>.nonReactive(
         builder: (_, __, ___) {
           return Scaffold(
-            appBar: AppBar(centerTitle: true, title: Text('Xulu System Chain')),
+            backgroundColor: Colors.deepPurpleAccent,
             body: Body(),
           );
         },
