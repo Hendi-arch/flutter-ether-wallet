@@ -1,0 +1,1 @@
+enum WalletCreateSteps { setup, confirm }
