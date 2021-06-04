@@ -24,7 +24,7 @@ class SetupWalletWidget extends ViewModelWidget<SignUpViewModel> {
           CustomButtonIcon(
               caption: 'Import wallet',
               icon: Icon(_walletIcons.gem, color: Colors.orange),
-              voidCallback: () {}),
+              voidCallback: () => viewModel.onImportWallet()),
         ],
       ),
     );

@@ -4,6 +4,6 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Center(
     child: const CircularProgressIndicator(
-        backgroundColor: Colors.white, valueColor: AlwaysStoppedAnimation<Color>(Colors.green)),
+        backgroundColor: Colors.white, valueColor: AlwaysStoppedAnimation<Color>(Colors.orange)),
   );
 }

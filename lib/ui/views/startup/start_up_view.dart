@@ -7,6 +7,6 @@ class StartUpView extends StatelessWidget {
   @override
   Widget build(context) => ViewModelBuilder<StartUpViewModel>.nonReactive(
       viewModelBuilder: () => StartUpViewModel(),
-      builder: (_, __, ___) => Scaffold(body: Body()),
+      builder: (_, __, ___) => Scaffold(backgroundColor: Colors.deepPurpleAccent, body: Body()),
       onModelReady: (viewModel) => viewModel.handleStartUpLogic(context));
 }

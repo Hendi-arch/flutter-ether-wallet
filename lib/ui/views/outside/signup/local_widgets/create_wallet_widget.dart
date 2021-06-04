@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_contract/app/app.locator.dart';
 import 'package:flutter_smart_contract/core/viewmodels/outside/signup/signup_view_model.dart';
+import 'package:flutter_smart_contract/shared/wallet_icons.dart';
 import 'package:flutter_smart_contract/ui/widgets/action/custom_button_icon.dart';
+import 'package:flutter_smart_contract/ui/widgets/basic/custom_circle_loading.dart';
 import 'package:stacked/stacked.dart';
 
 class CreateWalletWidget extends ViewModelWidget<SignUpViewModel> {
-  const CreateWalletWidget({Key? key}) : super(key: key);
+  CreateWalletWidget({Key? key}) : super(key: key);
+
+  final WalletIcons _walletIcons = locator<WalletIcons>();
 
   @override
   Widget build(BuildContext context, viewModel) {
@@ -28,9 +33,18 @@ class CreateWalletWidget extends ViewModelWidget<SignUpViewModel> {
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  CustomButtonIcon(caption: 'Generate New', voidCallback: () => viewModel.generateNewMnemonic()),
                   CustomButtonIcon(
-                      caption: 'Copy', icon: const Icon(Icons.copy), voidCallback: () => viewModel.copyMnemonic()),
-                  CustomButtonIcon(caption: 'Next', voidCallback: () {}),
+                    caption: 'Confirm & Create Wallet',
+                    icon:
+                    viewModel.isBusy ? const CustomCircleLoading() : Icon(_walletIcons.gem, color: Colors.orange),
+                    voidCallback: () => viewModel.confirmAndCreateWallet(),
+                  ),
+                  CustomButtonIcon(
+                    caption: 'Copy',
+                    voidCallback: () => viewModel.copyMnemonic(),
+                    icon: const Icon(Icons.copy),
+                  ),
                   CustomButtonIcon(
                     caption: 'Back',
                     voidCallback: () => viewModel.backToSetup(),
