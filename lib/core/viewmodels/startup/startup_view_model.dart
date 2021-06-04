@@ -18,7 +18,7 @@ class StartUpViewModel extends BaseViewModel {
     await _contractService.initialSetup();
 
     if (_configurationService.doneSetupWallet()) {
-      _navigationService.clearStackAndShow(signup);
+      _navigationService.clearStackAndShow(home);
     } else {
       _navigationService.clearStackAndShow(signup);
     }
